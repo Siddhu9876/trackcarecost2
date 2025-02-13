@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Track Care Cost</title>
+    <link rel="stylesheet" href="./css files/Home.css">
+</head>
+<body>
+
+    <header>
+        <div class="logo-container">
+            <img src="./images/trackcarecost.logo.png" alt="Logo" class="logo">
+            <h1>TRACK CARE COST</h1>
+        </div>
+        
+    </header>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const links = document.querySelectorAll("nav a");
+            links.forEach(link => {
+                link.addEventListener("click", function (e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute("href").substring(1);
+                    const targetSection = document.getElementById(targetId);
+                    if (targetSection) {
+                        window.scrollTo({
+                            top: targetSection.offsetTop - 50,
+                            behavior: "smooth"
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+
+    <main>
+        <button>
+            <a href="./Home.html" class="Home">Home</a>
+        </button>
+        <button>
+            <a href="./about.html" class="about">Form</a>
+        </button>
+        <button>
+            <a href="./contact.html" class="contact">contact</a>
+        </button>
+    </main>
+    <section id="upload" class="features">
+        <h2>Key Features</h2>
+        <div class="feature-list">
+            <div class="feature">
+                <h3>CSV Upload</h3>
+                <p>Easily upload health expenditure data.</p>
+            </div>
+            <div class="feature">
+                <h3>Expense Analysis</h3>
+                <p>Get insights on your spending trends.</p>
+            </div>
+            <div class="feature">
+                <h3>Data Visualization</h3>
+                <p>View charts and graphs for better understanding.</p>
+            </div>
+            <div class="feature">
+                <h3>Predictions</h3>
+                <p>AI-powered cost predictions for future expenses.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <p>&copy; 2025 TrackCareCost. All rights reserved.</p>
+    </footer>
+    
+</body>
+</html>

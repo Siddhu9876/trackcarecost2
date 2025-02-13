@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Health Expenditure Analysis Form</title>
+    <link rel="stylesheet" href="./manualform.css">
+</head>
+<body>
+
+    <div class="form-container">
+        <h2>Health Expenditure Analysis Form</h2>
+        <form id="customForm" action="/frontend/html files/templates/success.html" method="POST" enctype="multipart/form-data">
+            
+            <!-- Step 1: Personal Details -->
+            <div class="form-step active">
+                <h3>Step 1: Personal Details</h3>
+                
+                <label for="name">Full Name:</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="age">Age:</label>
+                <input type="number" id="age" name="age" required>
+
+                <label for="gender">Gender:</label>
+                <select id="gender" name="gender" required>
+                    <option value="">Select</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <option value="other">Other</option>
+                </select>
+
+                <label for="contact">Contact Number:</label>
+                <input type="tel" id="contact" name="contact" required>
+
+                <label for="address">Address:</label>
+                <input type="text" id="address" name="address" required>
+
+                <button type="button" class="next-btn">Next</button>
+            </div>
+
+            <!-- Step 2: Family & Medical History -->
+            <div class="form-step">
+                <h3>Step 2: Family & Medical History</h3>
+
+                <label for="family-history">Family History (Genetic Illnesses, Parents & Siblings):</label>
+                <select id="family-history" name="family_history">
+                    <option value="">Select</option>
+                    <option value="No genetic illnesses">No genetic illnesses</option>
+                    <option value="Diabetes">Diabetes</option>
+                    <option value="Heart disease">Heart disease</option>
+                    <option value="Hypertension">Hypertension</option>
+                    <option value="Other">Other</option>
+                </select>
+
+                <label for="medical-history">Medical History (Pre-existing conditions, surgeries, medications, long-term diseases):</label>
+                <select id="medical-history" name="medical_history">
+                    <option value="">Select</option>
+                    <option value="None">None</option>
+                    <option value="Diabetes">Diabetes</option>
+                    <option value="Hypertension">Hypertension</option>
+                    <option value="Asthma">Asthma</option>
+                    <option value="Other">Other</option>
+                </select>
+
+                <button type="button" class="prev-btn">Previous</button>
+                <button type="button" class="next-btn">Next</button>
+            </div>
+
+            <!-- Step 3: Lifestyle & Coverage -->
+            <div class="form-step">
+                <h3>Step 3: Lifestyle & Coverage Requirements</h3>
+
+                <label for="diet">Diet:</label>
+                <select id="diet" name="diet" required>
+                    <option value="">Select</option>
+                    <option value="Vegetarian">Vegetarian</option>
+                    <option value="Non-Vegetarian">Non-Vegetarian</option>
+                    <option value="Both">Both</option>
+                </select>
+
+                <label for="exercise">Exercise Routine:</label>
+                <select id="exercise" name="exercise" required>
+                    <option value="">Select</option>
+                    <option value="No exercise">No exercise</option>
+                    <option value="Light exercise">Light exercise</option>
+                    <option value="Moderate exercise">Moderate exercise</option>
+                    <option value="Heavy exercise">Heavy exercise</option>
+                </select>
+
+                <label for="coverage-type">Type of Coverage:</label>
+                <select id="coverage-type" name="coverage_type" required>
+                    <option value="">Select</option>
+                    <option value="Basic health coverage">Basic health coverage</option>
+                    <option value="Comprehensive coverage">Comprehensive coverage</option>
+                    <option value="Critical illness coverage">Critical illness coverage</option>
+                </select>
+
+                <label for="coverage-amount">Amount of Coverage:</label>
+                <input type="number" id="coverage-amount" name="coverage_amount" required>
+
+                <button type="button" class="prev-btn">Previous</button>
+                <button type="button" class="next-btn">Next</button>
+            </div>
+
+            <!-- Step 4: Health-Related Expenses -->
+            <div class="form-step">
+                <h3>Step 4: Health-Related Expenses</h3>
+
+                <div id="illness-forms">
+                    <div class="illness-form">
+                        <label for="illness-name">Health Illness Name:</label>
+                        <input type="text" name="illness_name[]" required>
+
+                        <label for="illness-period">Illness Period:</label>
+                        <input type="date" name="illness_start[]" required> to 
+                        <input type="date" name="illness_end[]" required>
+
+                        <label for="expenditure">Expenditure on This Illness:</label>
+                        <input type="number" name="expenditure[]" required>
+
+                        <label for="bills">Upload Authorized Bills (if available):</label>
+                        <input type="file" name="bills[]">
+                    </div>
+                </div>
+
+                <button type="button" id="add-more">Add More</button>
+
+                <button type="button" class="prev-btn">Previous</button>
+                <button type="submit">Submit</button>
+            </div>
+
+        </form>
+        <div class="form-container">
+            <h2>Download Your Submitted Data</h2>
+            
+            <div id="data-preview"></div> <!-- This will show the submitted data -->
+    
+            <div id="download-options" class="hidden">
+                <button id="download-csv">Download as CSV</button>
+                <button id="download-table">Download as Table</button>
+                <button id="download-pdf">Download as PDF</button>
+            </div>
+        </div>
+    
+        <script src="./download.js"></script>
+    </div>
+
+    <script src="./manualform.js"></script>
+    
+    
+</div>
+
+</body>
+</html>
